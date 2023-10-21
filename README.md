@@ -163,13 +163,13 @@ BEGIN
   SET email_count = 0;
   
   -- Verifique se já existe um e-mail com o mesmo nome e sobrenome
-  SELECT COUNT(*) INTO email_count FROM Aula10.aluno WHERE email = CONCAT(NEW.nome, '.', NEW.sobrenome, '@dominio.com');
+  SELECT COUNT(*) INTO email_count FROM Aula10.aluno WHERE email = CONCAT(NEW.nome, '.', NEW.sobrenome, '@facens.com');
   
   -- Se houver um conflito, adicione um número incremental ao e-mail
   IF email_count > 0 THEN
-    SET NEW.email = CONCAT(NEW.nome, '.', NEW.sobrenome, email_count, '@dominio.com');
+    SET NEW.email = CONCAT(NEW.nome, '.', NEW.sobrenome, email_count, '@facens.com');
   ELSE
-    SET NEW.email = CONCAT(NEW.nome, '.', NEW.sobrenome, '@dominio.com');
+    SET NEW.email = CONCAT(NEW.nome, '.', NEW.sobrenome, '@facens.com');
   END IF;
 END;
 $$
